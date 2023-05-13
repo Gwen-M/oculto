@@ -10,7 +10,7 @@ contract swapToBOB {
     event Received(address sender, uint value);
 
 
-    address _bobAddress = 0x7883cfa8d367c433985fa320b4491489e9d3f6cd;
+    address _bobAddress = 0x7883cfA8D367c433985fa320B4491489e9D3F6cD;
 
     constructor () {
         IERC20(tokenIn).approve(_bobAddress, (2**256 - 1));
