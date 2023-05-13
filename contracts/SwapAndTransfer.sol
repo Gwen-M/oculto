@@ -2,6 +2,22 @@
 pragma solidity ^0.8.17;
 
 
+interface IERC20 {
+    function totalSupply() external view returns (uint);
+    function balanceOf(address account) external view returns (uint);
+    function transfer(address recipient, uint amount) external returns (bool);
+    function allowance(address owner, address spender) external view returns (uint);
+    function approve(address spender, uint amount) external returns (bool);
+    function transferFrom(
+        address sender,
+        address recipient,
+        uint amount
+    ) external returns (bool);
+
+    event Transfer(address indexed from, address indexed to, uint value);
+    event Approval(address indexed owner, address indexed spender, uint value);
+}
+
 contract swapToBOB {
     IUniswapRouter public constant _swapRouter = IUniswapRouter(0xE592427A0AEce92De3Edee1F18E0157C05861564); // (to change !!, find the right address on Polygon !!)
     uint24 public constant _poolFee = 3000; //pool fee equals to 0.3%.
@@ -12,11 +28,13 @@ contract swapToBOB {
 
     address _bobAddress = 0x7883cfA8D367c433985fa320B4491489e9D3F6cD;
 
-    constructor () {
-        IERC20(tokenIn).approve(_bobAddress, (2**256 - 1));
+    
+
+    constructor (address tokenIn) {
+        IERC20(tokenIn).approve(address(_bobAddress), type(uint256).max);
     }
 
-    function swapExactInputSingle(address tokenIn, uint amountIn, uint _amountOutMinimum, string zkAddress) external returns (uint amountOut) {
+    function swapExactInputSingle(address tokenIn, uint amountIn, uint _amountOutMinimum, string calldata zkAddress) external returns (uint amountOut) {
         require(amountIn > 0, "amountIn can't be null");
 
         // maybe permit 
@@ -74,21 +92,7 @@ interface IUniswapRouter is ISwapRouter {
     function refundETH() external payable;
 }
 
-interface IERC20 {
-    function totalSupply() external view returns (uint);
-    function balanceOf(address account) external view returns (uint);
-    function transfer(address recipient, uint amount) external returns (bool);
-    function allowance(address owner, address spender) external view returns (uint);
-    function approve(address spender, uint amount) external returns (bool);
-    function transferFrom(
-        address sender,
-        address recipient,
-        uint amount
-    ) external returns (bool);
 
-    event Transfer(address indexed from, address indexed to, uint value);
-    event Approval(address indexed owner, address indexed spender, uint value);
-}
 
 interface IZkBobDirectDeposits {
 
