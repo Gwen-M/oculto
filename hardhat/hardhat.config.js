@@ -40,7 +40,7 @@ module.exports = {
       accounts: [`0x${PK}`],
       chainID: 10
     },
-    scrollAlpha: {
+    scrollAlpha: { //maybe replace scrollAlpha by scrollTestnet
       url: "https://alpha-rpc.scroll.io/l2" || "",
       accounts: [`0x${PK}`],
       chainID: 534353
