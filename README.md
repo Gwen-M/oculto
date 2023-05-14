@@ -16,3 +16,11 @@ Tweet link : https://twitter.com/Gwenole_M/status/1657639404654002176?s=20
 ## Scroll
 
 https://blockscout.scroll.io/address/
+
+
+## What to look at inside the LensterOculting directory
+
+This directory contains a fork of Lenster where we added the zkBob payment functionality. You will find our customs and new components here:
+LensterOculting/apps/web/src/components/Messages/.
+
+We added AskAddress and SendBob component.
