@@ -15,7 +15,7 @@ Tweet link : https://twitter.com/Gwenole_M/status/1657639404654002176?s=20
 
 ## Scroll
 
-https://blockscout.scroll.io/address/
+https://blockscout.scroll.io/address/0x20Ca37A553C4ec6DF041BAA3Ad92A0d04786B72A (Other contract)
 
 
 ## What to look at inside the LensterOculting directory
@@ -24,8 +24,3 @@ This directory contains a fork of Lenster where we added the zkBob payment funct
 LensterOculting/apps/web/src/components/Messages/.
 
 We added AskAddress and SendBob component.
-0x20Ca37A553C4ec6DF041BAA3Ad92A0d04786B72A
-ajoutez ca
-pour scroll
-et mettez que j'ai parlé à Reza (judge from scroll) et qu'on a vu qu'on était unable to deploy the official contract
-et qu'on a mit celui là à la place
